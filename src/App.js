@@ -10,18 +10,20 @@ function App() {
   const [bid, setBid] = useState(0);
   const [ask, setAsk] = useState(0);
 
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      fetch(URL)
-        .then((response) => response.json())
-        .then((json) => {
-          setTime(json[0].Timestamp);
-          setBid(json[0].BestBid.Price);
-          setAsk(json[0].BestAsk.Price);
-        });
-    }, DELAY);
-    return () => clearInterval(intervalId);
-  }, []);
+
+
+  // useEffect(() => {
+  //   const intervalId = setInterval(() => {
+  //     fetch(URL)
+  //       .then((response) => response.json())
+  //       .then((json) => {
+  //         setTime(json[0].Timestamp);
+  //         setBid(json[0].BestBid.Price);
+  //         setAsk(json[0].BestAsk.Price);
+  //       });
+  //   }, DELAY);
+  //   return () => clearInterval(intervalId);
+  // }, []);
 
   return (
     <div className="app">
