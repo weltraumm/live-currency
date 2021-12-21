@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/live-currency/static/css/main.75021c83.css",
+    "main.js": "/live-currency/static/js/main.94abd486.js",
+    "index.html": "/live-currency/index.html",
+    "main.75021c83.css.map": "/live-currency/static/css/main.75021c83.css.map",
+    "main.94abd486.js.map": "/live-currency/static/js/main.94abd486.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.75021c83.css",
+    "static/js/main.94abd486.js"
+  ]
+}
