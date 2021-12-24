@@ -1,7 +1,5 @@
 import CryptoJS from "crypto-js";
 
-
-
 function CreateSignature(timestamp, id, key, secret) {
   var hash = CryptoJS.HmacSHA256(timestamp + id + key, secret);
   return CryptoJS.enc.Base64.stringify(hash);
@@ -9,22 +7,21 @@ function CreateSignature(timestamp, id, key, secret) {
 
 let socket = null;
 
-function socketConnect(address, id, key, secret) {
-  try {
+export default function socketSubscribe(address, id, key, secret) {
     let timestamp = Date.now();
-    let signature = CreateSignature(timestamp, ID, KEY, SECRET);
-    socket = new WebSocket(ADDRES);
+    let signature = CreateSignature(timestamp, id, key, secret);
+    socket = new WebSocket(address);
 
     socket.onopen = () => {
       console.log("Socket state: " + socket.readyState + " (open)");
 
       let connectionRequest = {
-        Id: ID,
+        Id: id,
         Request: "Login",
         Params: {
           AuthType: "HMAC",
-          WebApiId: ID,
-          WebApiKey: KEY,
+          WebApiId: id,
+          WebApiKey: key,
           Timestamp: timestamp,
           Signature: signature,
           DeviceId: "WebBrowser",
@@ -33,9 +30,10 @@ function socketConnect(address, id, key, secret) {
 			};
 			let jsonConnectionRequest = JSON.stringify(connectionRequest);
       socket.send(jsonConnectionRequest);
-
+      console.log('');
+      
       let feedRequest = {
-        Id: ID,
+        Id: id,
         Request: "FeedSubscribe",
         Params: {
           Subscribe: [
@@ -49,17 +47,5 @@ function socketConnect(address, id, key, secret) {
       let jsonFeedRequest = JSON.stringify(feedRequest);
       socket.send(jsonFeedRequest);
     };
-
-    socket.onmessage = (msg) => {
-      // const message = JSON.parse(msg.data);
-      console.log(msg.data);
-    };
-
-    socket.onclose = () => {
-      console.log("Socket state: " + socket.readyState + " (closed)");
-      socket = null;
-    };
-  } catch (exception) {
-    console.log("Error: " + exception.text);
-  }
+    return socket;
 }
