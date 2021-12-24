@@ -1,6 +1,6 @@
 .app {
   text-align: center;
-  background-color: #333333;
+  background-color: rgb(51, 51, 51);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -37,10 +37,24 @@
 
 .small_text{
   font-size: calc(10px + 1vmin);
-  margin-top: 6vmin;
+  margin-top: 2vmin;
   margin-bottom: 0%;
 }
 
 .date_text{
   margin: 1vmin 0%;
+}
+
+.select{
+  margin-top: 4vmin;
+  font-size: calc(10px + 1vmin);
+  border: #fff 2px solid;
+  border-radius: 7px;
+  background-color: rgb(255, 255, 255, 0.25);
+  color: #fff;
+  padding: 1vmin;
+}
+
+.option{
+  background-color: rgb(255, 255, 255, 0.25);
 }
