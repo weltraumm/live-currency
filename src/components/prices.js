@@ -3,23 +3,7 @@ import "../styles/prices.css";
 import moment from "moment";
 import socketSubscribe from "../webSocketAPI";
 import { CurrencySelect } from "./currencySelect.js";
-
-const currencies = [
-  "EURUSD",
-  "GBPUSD",
-  "USDJPY",
-  "USDRUB",
-  "AUDUSD",
-  "USDCHF",
-  "XBRUSD",
-  "BTCEUR",
-  "BTCUSD",
-  "LTCUSD",
-  "LTCUSD",
-  "AAPL",
-  "AMZN",
-  "NFLX",
-];
+import { currencies } from "./currencySelect.js";
 
 function Prices({ address, id, keyy, secret }) {
   const [time, setTime] = useState(Date.now());
@@ -45,7 +29,7 @@ function Prices({ address, id, keyy, secret }) {
       }
     };
     return () => socket.close();
-  }, []);
+  }, currency);
 
   let changeCurrency = (value) => {
       setCurrency(value);
