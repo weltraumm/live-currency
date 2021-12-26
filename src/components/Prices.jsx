@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import "../styles/prices.css";
+import "../styles/prices.scss";
 import moment from "moment";
 import socketSubscribe from "../webSocketAPI.js";
-import { CurrencySelect } from "./currencySelect.js";
-import { currencies } from '../currenciesList.js';
+import { CurrencySelect } from "./CurrencySelect.jsx";
+import { currencies } from "../currenciesList.js";
 
 function Prices({ address, id, keyy, secret }) {
   const [time, setTime] = useState(Date.now());
@@ -32,12 +32,12 @@ function Prices({ address, id, keyy, secret }) {
   }, currency);
 
   let changeCurrency = (value) => {
-      setCurrency(value);
+    setCurrency(value);
   };
 
   return (
     <>
-      <CurrencySelect changeCurrency={changeCurrency}/>
+      <CurrencySelect changeCurrency={changeCurrency} />
       <div className="currency">
         <div>
           <p className="small_text">bid</p>
