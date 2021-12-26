@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import "../styles/prices.css";
 import moment from "moment";
-import socketSubscribe from "../webSocketAPI";
+import socketSubscribe from "../webSocketAPI.js";
 import { CurrencySelect } from "./currencySelect.js";
-import { currencies } from "./currencySelect.js";
+import { currencies } from '../currenciesList.js';
 
 function Prices({ address, id, keyy, secret }) {
   const [time, setTime] = useState(Date.now());

@@ -1,23 +1,8 @@
 import { useState } from "react";
-
-export const currencies = [
-  "EURUSD",
-  "GBPUSD",
-  "USDJPY",
-  "USDRUB",
-  "AUDUSD",
-  "USDCHF",
-  "XBRUSD",
-  "BTCEUR",
-  "BTCUSD",
-  "LTCUSD",
-  "AAPL",
-  "AMZN",
-  "NFLX",
-];
+import { currencies } from "../currenciesList";
 
 export const CurrencySelect = ({ changeCurrency }) => {
-  const [currency, setCurrency] = useState(currencies[0]);  
+  const [currency, setCurrency] = useState(currencies[0]);
 
   return (
     <>
