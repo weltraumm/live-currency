@@ -1,0 +1,24 @@
+.main_field {
+}
+
+.main_field:hover > .dropdown{
+    display: block;
+}
+
+.triangle {
+    width: 15px;
+    height: 15px;
+    background-color: #fff;
+    display: inline-block;
+}
+
+.dropdown {
+    display: none;
+    list-style: none;
+
+    .dropdown_field {
+
+    }
+    
+}
+

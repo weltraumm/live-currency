@@ -1,0 +1,38 @@
+.currency {
+  display: flex;
+}
+
+.price {
+  margin: 1vmin 3vmin;
+  padding: 4vmin;
+  border-radius: 20px;
+  width: 5em;
+}
+
+.green {
+  background-color: rgba(171, 224, 110, 0.5);
+}
+
+.red {
+  background-color: rgba(224, 110, 110, 0.5);
+}
+
+.small_text {
+  font-size: calc(10px + 1vmin);
+  margin-top: 2vmin;
+  margin-bottom: 0%;
+}
+
+.date_text {
+  margin: 1vmin 0%;
+}
+
+.select {
+  margin-top: 4vmin;
+  font-size: calc(10px + 1vmin);
+  border: #fff 2px solid;
+  border-radius: 7px;
+  background-color: rgba(255, 255, 255, 0.25);
+  color: #fff;
+  padding: 1vmin;
+}
