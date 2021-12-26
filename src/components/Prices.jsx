@@ -5,19 +5,27 @@ import socketSubscribe from "../webSocketAPI.js";
 import { CurrencySelect } from "./CurrencySelect.jsx";
 import { currencies } from "../currenciesList.js";
 
-function Prices({ address, id, keyy, secret }) {
+function Prices() {
   const [time, setTime] = useState(Date.now());
   const [bid, setBid] = useState(0);
   const [ask, setAsk] = useState(0);
   const [currency, setCurrency] = useState(currencies[0]);
 
+  const API_KEY = process.env.REACT_APP_API_KEY;
+  const API_URL = process.env.REACT_APP_API_URL;
+  const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
+  const API_SECRET = process.env.REACT_APP_API_SECRET;
+
   useEffect(() => {
-    let socket = socketSubscribe(address, id, keyy, secret, currency);
-    console.log(socket);
+    let socket = socketSubscribe(
+      API_URL,
+      CLIENT_ID,
+      API_KEY,
+      API_SECRET,
+      currency
+    );
     socket.onmessage = (msg) => {
       const message = JSON.parse(msg.data);
-      console.log(message);
-      console.log(message.Response);
       if (message.Response === "FeedSubscribe") {
         setTime(message.Result.Snapshot[0].Timestamp);
         setBid(message.Result.Snapshot[0].BestBid.Price);
@@ -29,7 +37,7 @@ function Prices({ address, id, keyy, secret }) {
       }
     };
     return () => socket.close();
-  }, currency);
+  }, [currency]);
 
   let changeCurrency = (value) => {
     setCurrency(value);

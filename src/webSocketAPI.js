@@ -5,15 +5,13 @@ function CreateSignature(timestamp, id, key, secret) {
   return CryptoJS.enc.Base64.stringify(hash);
 }
 
-function socketSubscribe(address, id, keyy, secret, currency) {
+function socketSubscribe(url, id, keyy, secret, currency) {
   let socket = null;
   let timestamp = Date.now();
   let signature = CreateSignature(timestamp, id, keyy, secret);
-  socket = new WebSocket(address);
+  socket = new WebSocket(url);
 
   socket.onopen = () => {
-    console.log("Socket state: " + socket.readyState + " (open)");
-
     let connectionRequest = {
       Id: id,
       Request: "Login",
