@@ -10,23 +10,23 @@ export const CurrencySelect = ({ changeCurrency }) => {
       <div className="main_field">
         <span>{currency}</span>
         <div className="triangle"></div>
+        <ul className="dropdown">
+          {currencies.map((currency) => {
+            return (
+              <li
+                onClick={(e) => {
+                  setCurrency(e.target.innerHTML);
+                  changeCurrency(e.target.innerHTML);
+                }}
+                key={currency}
+                className="dropdown_field"
+              >
+                {currency}
+              </li>
+            );
+          })}
+        </ul>
       </div>
-      <ul className="dropdown">
-        {currencies.map((currency) => {
-          return (
-            <li
-              onClick={(e) => {
-                setCurrency(e.target.innerHTML);
-                changeCurrency(e.target.innerHTML);
-              }}
-              key={currency}
-              className="dropdown_field"
-            >
-              {currency}
-            </li>
-          );
-        })}
-      </ul>
     </>
   );
 };
