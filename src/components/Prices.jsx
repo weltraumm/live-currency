@@ -46,19 +46,19 @@ function Prices() {
   return (
     <>
       <CurrencySelect changeCurrency={changeCurrency} />
-      <div className="currency">
+      <div className="prices_container">
         <div>
           <p className="small_text">bid</p>
-          <p className="green price">{bid}</p>
+          <p className="green price_field">{bid}</p>
         </div>
         <div>
           <p className="small_text">ask</p>
-          <p className="red price">{ask}</p>
+          <p className="red price_field">{ask}</p>
         </div>
       </div>
       <div>
         <p className="small_text">for the</p>
-        <p className="date_text">{moment(time).toString()}</p>
+        <p className="date">{moment(time).toString()}</p>
       </div>
     </>
   );
