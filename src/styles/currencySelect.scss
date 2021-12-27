@@ -30,7 +30,8 @@
     list-style: none;
     padding: 0%;
     .list_item {
-      padding: 0.6vmin 1vmin;
+      text-align: left;
+      padding: 0.6vmin 1.4vmin;
       &:hover {
         transition: 60ms;
         background-color: #585858;
