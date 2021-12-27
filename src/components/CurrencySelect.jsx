@@ -7,10 +7,12 @@ export const CurrencySelect = ({ changeCurrency }) => {
 
   return (
     <>
-      <div className="main_field">
-        <span>{currency}</span>
-        <div className="triangle"></div>
-        <ul className="dropdown">
+      <div className="dropdown_container">
+        <div className="dropdown_header">
+          <span>{currency}</span>
+          <div className="triangle"></div>
+        </div>
+        <ul className="dropdown_list">
           {currencies.map((currency) => {
             return (
               <li
@@ -19,7 +21,7 @@ export const CurrencySelect = ({ changeCurrency }) => {
                   changeCurrency(e.target.innerHTML);
                 }}
                 key={currency}
-                className="dropdown_field"
+                className="list_item"
               >
                 {currency}
               </li>
